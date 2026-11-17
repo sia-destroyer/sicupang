@@ -15,7 +15,7 @@ LOGO = next((FOLDER / n for n in ("logo.png", "logo .png") if (FOLDER / n).exist
 def tampilkan_logo(lebar):
     """Tampilkan gambar logo. Jika file tidak ditemukan, tampilkan emoji supaya aplikasi tidak error."""
     if LOGO is not None:
-        st.image(str(LOGO), width=lebar)
+        st.image(str(LOGO), width=160)
     else:
         st.markdown("🐟")
 
