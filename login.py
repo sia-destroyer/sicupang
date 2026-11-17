@@ -16,7 +16,7 @@ def tampilkan_logo(lebar):
     if LOGO.exists():
         st.image(str(LOGO), width=lebar)
     else:
-        st.image("logo. png", width=160)
+        st.image("logo. png", width=200)
 
 
 # =====================================================================
@@ -31,7 +31,7 @@ def halaman_login():
         with st.container(border=True):
             c_logo, c_teks = st.columns([1, 3], vertical_alignment="center")
             with c_logo:
-                tampilkan_logo(190)                        # logo di kiri
+                tampilkan_logo(200)                        # logo di kiri
             c_teks.header("SiCupang")                     # tulisan di samping logo
             st.caption("Aplikasi akuntansi sederhana (cash basis)")
             with st.form("form_masuk"):                   # form = kirim sekali saat tombol ditekan
