@@ -23,7 +23,7 @@ def pasang_css():
     div[data-testid="stMetric"] {
         background-color: #FFFFFF !important;
         border: 1px solid rgba(30, 64, 175, 0.12) !important;
-        border-radius: 16px !important;
+        border-radius: 8px !important;
         box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06),
                     0 4px 12px rgba(15, 23, 42, 0.08);
         transition: box-shadow .25s ease, transform .25s ease, border-color .25s ease;
