@@ -14,8 +14,9 @@ def halaman_login():
         st.write("")
         st.write("")
         with st.container(border=True):
-            st.image("logo .png", width=180)
-            st.header("SiCupang")     
+            c_logo, c_teks = st.columns([1, 3], vertical_alignment="center")
+            c_logo.image("logo.png", width=70)            # logo di halaman login
+            c_teks.header("SiCupang")                     # tulisan di samping logo
             st.caption("Aplikasi akuntansi sederhana (cash basis)")
             with st.form("form_masuk"):                   # form = kirim sekali saat tombol ditekan
                 username = st.text_input("Username", placeholder="Masukkan username")
@@ -53,7 +54,9 @@ def sidebar_akun():
     with st.sidebar:
         st.divider()
         with st.container(border=True):
-            st.image("logo .png")
+            c_logo, c_teks = st.columns([1, 2], vertical_alignment="center")
+            c_logo.image("logo.png", width=45)            # logo di sidebar
+            c_teks.markdown("**SiCupang**")               # tulisan di samping logo
             st.caption(f":material/account_circle: {st.session_state.user['nama']}")
             st.caption("Pembukuan cash basis")
             if st.button("Keluar", icon=":material/logout:", key="btn_keluar"):
