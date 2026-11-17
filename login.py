@@ -7,31 +7,6 @@ from database import get_client, bersihkan_cache
 # =====================================================================
 # 5. LOGIN & SIDEBAR AKUN  (akun di tabel `akun`, tanpa Supabase Auth)
 # =====================================================================
-
-def terapkan_css():
-    st.markdown("""
-    <style>
-    /* Kartu di area utama: putih, sudut bulat, bayangan halus */
-    .stMain [data-testid="stVerticalBlockBorderWrapper"] {
-        background: #FFFFFF;
-        border-radius: 1.25rem;
-        box-shadow: 0 8px 28px rgba(11, 37, 69, 0.10);
-    }
-    /* Kotak form di dalam kartu: biru es tipis, tanpa bayangan */
-    .stMain [data-testid="stForm"] {
-        background: #F1F7FC;
-        border: 1px solid #D3E5F2;
-        border-radius: 1rem;
-        box-shadow: none;
-    }
-    /* Kartu bersarang di dalam kartu: tanpa bayangan ganda */
-    .stMain [data-testid="stVerticalBlockBorderWrapper"] [data-testid="stVerticalBlockBorderWrapper"] {
-        box-shadow: none;
-    }
-    </style>
-    """, unsafe_allow_html=True)
-
-
 def halaman_login():
     # Tiga kolom: kiri & kanan kosong, kartu login di tengah -> posisi di tengah layar
     _, tengah, _ = st.columns([1, 1.2, 1])
