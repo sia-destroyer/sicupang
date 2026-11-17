@@ -16,7 +16,7 @@ def tampilkan_logo(lebar):
     if LOGO.exists():
         st.image(str(LOGO), width=lebar)
     else:
-        st.image("logo. png")
+        st.image("logo. png", width=160)
 
 
 # =====================================================================
