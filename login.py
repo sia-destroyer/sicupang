@@ -14,7 +14,7 @@ def halaman_login():
         st.write("")
         st.write("")
         with st.container(border=True):
-            st.image("logo .png", width=120)
+            st.image("logo .png", width=180)
             st.caption("Aplikasi akuntansi sederhana (cash basis)")
             with st.form("form_masuk"):                   # form = kirim sekali saat tombol ditekan
                 username = st.text_input("Username", placeholder="Masukkan username")
