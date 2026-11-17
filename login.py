@@ -1,8 +1,23 @@
 """Halaman login, logout, dan kartu akun pada sidebar."""
 
+from pathlib import Path
+
 import streamlit as st
 
 from database import get_client, bersihkan_cache
+
+# Lokasi logo: dicari di folder yang sama dengan file ini, jadi aman dari mana pun
+# aplikasi dijalankan. Nama file harus persis "logo.png" (tanpa spasi).
+LOGO = Path(__file__).parent / "logo.png"
+
+
+def tampilkan_logo(lebar):
+    """Tampilkan gambar logo. Jika file tidak ditemukan, tampilkan emoji supaya aplikasi tidak error."""
+    if LOGO.exists():
+        st.image(str(LOGO), width=lebar)
+    else:
+        st.markdown("🐟")
+
 
 # =====================================================================
 # 5. LOGIN & SIDEBAR AKUN  (akun di tabel `akun`, tanpa Supabase Auth)
@@ -14,8 +29,10 @@ def halaman_login():
         st.write("")
         st.write("")
         with st.container(border=True):
-            st.image("logo .png", width=180)
-            st.header("SiCupang")     
+            c_logo, c_teks = st.columns([1, 3], vertical_alignment="center")
+            with c_logo:
+                tampilkan_logo(70)                        # logo di kiri
+            c_teks.header("SiCupang")                     # tulisan di samping logo
             st.caption("Aplikasi akuntansi sederhana (cash basis)")
             with st.form("form_masuk"):                   # form = kirim sekali saat tombol ditekan
                 username = st.text_input("Username", placeholder="Masukkan username")
@@ -53,7 +70,10 @@ def sidebar_akun():
     with st.sidebar:
         st.divider()
         with st.container(border=True):
-            st.image("logo .png")
+            c_logo, c_teks = st.columns([1, 2], vertical_alignment="center")
+            with c_logo:
+                tampilkan_logo(45)                        # logo di kiri
+            c_teks.markdown("**SiCupang**")               # tulisan di samping logo
             st.caption(f":material/account_circle: {st.session_state.user['nama']}")
             st.caption("Pembukuan cash basis")
             if st.button("Keluar", icon=":material/logout:", key="btn_keluar"):
