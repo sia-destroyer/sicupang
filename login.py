@@ -6,17 +6,18 @@ import streamlit as st
 
 from database import get_client, bersihkan_cache
 
-# Lokasi logo: dicari di folder yang sama dengan file ini, jadi aman dari mana pun
-# aplikasi dijalankan. Nama file harus persis "logo.png" (tanpa spasi).
-LOGO = Path(__file__).parent / "logo .png"
+# Lokasi logo: dicari di folder yang sama dengan file ini. Dicoba dua nama file:
+# "logo.png" (disarankan) lalu "logo .png" (nama lama dengan spasi).
+FOLDER = Path(__file__).parent
+LOGO = next((FOLDER / n for n in ("logo.png", "logo .png") if (FOLDER / n).exists()), None)
 
 
 def tampilkan_logo(lebar):
     """Tampilkan gambar logo. Jika file tidak ditemukan, tampilkan emoji supaya aplikasi tidak error."""
-    if LOGO.exists():
+    if LOGO is not None:
         st.image(str(LOGO), width=lebar)
     else:
-        st.image("logo. png", width=200)
+        st.markdown("🐟")
 
 
 # =====================================================================
@@ -29,11 +30,17 @@ def halaman_login():
         st.write("")
         st.write("")
         with st.container(border=True):
-            c_logo, c_teks = st.columns([1, 3], vertical_alignment="center")
+            # Logo + nama dikelompokkan di tengah kartu: dua kolom kosong di tepi sebagai pengapit
+            _, c_logo, c_teks, _ = st.columns([0.5, 1.2, 2.2, 0.5],
+                                              vertical_alignment="center", gap="small")
             with c_logo:
-                tampilkan_logo(200)                        # logo di kiri
-            c_teks.header("SiCupang")                     # tulisan di samping logo
-            st.caption("Aplikasi akuntansi sederhana (cash basis)")
+                tampilkan_logo(110)
+            c_teks.header("SiCupang")
+            # Keterangan dibuat rata tengah supaya seimbang dengan logo + nama di atasnya
+            st.markdown(
+                "<div style='text-align:center; color:#64748b; font-size:14px; "
+                "margin-bottom:12px;'>Aplikasi akuntansi sederhana (cash basis)</div>",
+                unsafe_allow_html=True)
             with st.form("form_masuk"):                   # form = kirim sekali saat tombol ditekan
                 username = st.text_input("Username", placeholder="Masukkan username")
                 password = st.text_input("Password", type="password", placeholder="Masukkan password")
@@ -70,10 +77,10 @@ def sidebar_akun():
     with st.sidebar:
         st.divider()
         with st.container(border=True):
-            c_logo, c_teks = st.columns([1, 2], vertical_alignment="center")
+            c_logo, c_teks = st.columns([1, 1.6], vertical_alignment="center", gap="small")
             with c_logo:
-                tampilkan_logo(100)                        # logo di kiri
-            c_teks.markdown("**SiCupang**")               # tulisan di samping logo
+                tampilkan_logo(60)
+            c_teks.markdown("**SiCupang**")
             st.caption(f":material/account_circle: {st.session_state.user['nama']}")
             st.caption("Pembukuan cash basis")
             if st.button("Keluar", icon=":material/logout:", key="btn_keluar"):
