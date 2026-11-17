@@ -14,7 +14,58 @@ from login import halaman_login, sidebar_akun
 from saldo_awal import halaman_saldo_awal
 from transaksi import halaman_pembelian, halaman_penjualan, halaman_tarik_uang
 
+def pasang_css():
+    """Kotak (container border & metric) putih + shadow + efek hover."""
+    st.markdown("""
+    <style>
+    /* ---- Kotak: container border & metric ---- */
+    div[data-testid="stVerticalBlockBorderWrapper"]:has(> div > div[data-testid="stVerticalBlock"]),
+    div[data-testid="stMetric"] {
+        background-color: #FFFFFF !important;
+        border: 1px solid rgba(30, 64, 175, 0.12) !important;
+        border-radius: 16px !important;
+        box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06),
+                    0 4px 12px rgba(15, 23, 42, 0.08);
+        transition: box-shadow .25s ease, transform .25s ease, border-color .25s ease;
+    }
+
+    /* Padding untuk metric yang berdiri sendiri (kartu di baris atas) */
+    div[data-testid="stMetric"] {
+        padding: 14px 18px !important;
+    }
+
+    /* ---- Efek hover ---- */
+    div[data-testid="stVerticalBlockBorderWrapper"]:has(> div > div[data-testid="stVerticalBlock"]):hover,
+    div[data-testid="stMetric"]:hover {
+        box-shadow: 0 2px 4px rgba(15, 23, 42, 0.08),
+                    0 12px 28px rgba(30, 64, 175, 0.18);
+        transform: translateY(-2px);
+        border-color: rgba(30, 64, 175, 0.30) !important;
+    }
+
+    /* Di DALAM kotak (Piutang, Total Utang, Ikan: awal, dst.):
+       metric polos, tanpa kotak, tanpa shadow, tanpa melayang */
+    div[data-testid="stVerticalBlockBorderWrapper"] div[data-testid="stMetric"],
+    div[data-testid="stVerticalBlockBorderWrapper"] div[data-testid="stMetric"]:hover {
+        background-color: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        transform: none !important;
+        padding: 0 !important;
+    }
+
+    /* Kotak di dalam kotak: jangan double shadow & jangan melayang */
+    div[data-testid="stVerticalBlockBorderWrapper"] div[data-testid="stVerticalBlockBorderWrapper"],
+    div[data-testid="stVerticalBlockBorderWrapper"] div[data-testid="stVerticalBlockBorderWrapper"]:hover {
+        box-shadow: none !important;
+        transform: none !important;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
+
 def main():
+    pasang_css()
     # 1) Belum login -> tampilkan halaman login (tanpa sidebar)
     if "user" not in st.session_state:
         halaman_login()
