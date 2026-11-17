@@ -72,7 +72,7 @@ def sidebar_akun():
         with st.container(border=True):
             c_logo, c_teks = st.columns([1, 2], vertical_alignment="center")
             with c_logo:
-                tampilkan_logo(60)                        # logo di kiri
+                tampilkan_logo(100)                        # logo di kiri
             c_teks.markdown("**SiCupang**")               # tulisan di samping logo
             st.caption(f":material/account_circle: {st.session_state.user['nama']}")
             st.caption("Pembukuan cash basis")
