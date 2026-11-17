@@ -52,7 +52,7 @@ def sidebar_akun():
     with st.sidebar:
         st.divider()
         with st.container(border=True):
-            st.markdown("logo .png")
+            st.image("logo .png")
             st.caption(f":material/account_circle: {st.session_state.user['nama']}")
             st.caption("Pembukuan cash basis")
             if st.button("Keluar", icon=":material/logout:", key="btn_keluar"):
