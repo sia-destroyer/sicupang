@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.set_page_config(page_title="SiCupang Akuntansi", page_icon="🐟", layout="wide",
+st.set_page_config(page_title="SiCupang Akuntansi", page_icon="logo .png", layout="wide",
                    initial_sidebar_state="expanded")
 
 from akses_cepat import halaman_akses_cepat
