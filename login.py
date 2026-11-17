@@ -8,7 +8,7 @@ from database import get_client, bersihkan_cache
 
 # Lokasi logo: dicari di folder yang sama dengan file ini, jadi aman dari mana pun
 # aplikasi dijalankan. Nama file harus persis "logo.png" (tanpa spasi).
-LOGO = Path(__file__).parent / "logo.png"
+LOGO = Path(__file__).parent / "logo .png"
 
 
 def tampilkan_logo(lebar):
@@ -16,7 +16,7 @@ def tampilkan_logo(lebar):
     if LOGO.exists():
         st.image(str(LOGO), width=lebar)
     else:
-        st.markdown("🐟")
+        st.image("logo. png")
 
 
 # =====================================================================
