@@ -63,8 +63,6 @@ def format_uang(df, kolom):
 def judul_halaman(judul, deskripsi):
     """Kepala halaman dengan tombol keluar di kanan atas."""
 
-    tombol_keluar()
-
     st.title(judul)
     st.caption(deskripsi)
     
