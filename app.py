@@ -15,6 +15,7 @@ from saldo_awal import halaman_saldo_awal
 from transaksi import halaman_pembelian, halaman_penjualan, halaman_tarik_uang
 
 def main():
+    terapkan_css()   # kartu putih + bayangan (lihat login.py)
     # 1) Belum login -> tampilkan halaman login (tanpa sidebar)
     if "user" not in st.session_state:
         halaman_login()
