@@ -72,13 +72,12 @@ def laporan_jurnal_umum(df):
     df = df[df["jenis"] != "saldo_awal"]
     j = pd.DataFrame({
         "Tanggal": df["tanggal"],
-        "Bukti": df["bukti"].str[:8],
         "Keterangan": df["keterangan"],
         "Akun": [("      " + a) if k > 0 else a for a, k in zip(df["nama_akun"], df["kredit"])],
         "Debit": df["debit"],
         "Kredit": df["kredit"],
     })
-    return j.reset_index(drop=True)
+  return j.reset_index(drop=True)
 
 
 def laporan_buku_besar(df, kode):
