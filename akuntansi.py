@@ -77,7 +77,7 @@ def laporan_jurnal_umum(df):
         "Debit": df["debit"],
         "Kredit": df["kredit"],
     })
-  return j.reset_index(drop=True)
+    return j.reset_index(drop=True)
 
 
 def laporan_buku_besar(df, kode):
