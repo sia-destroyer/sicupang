@@ -25,7 +25,7 @@ def tampilkan_logo(lebar):
 # =====================================================================
 def halaman_login():
     # Tiga kolom: kiri & kanan kosong, kartu login di tengah -> posisi di tengah layar
-    _, tengah, _ = st.columns([1, 2, 1])
+    _, tengah, _ = st.columns([1, 1.2, 1])
     with tengah:
         st.write("")
         st.write("")
