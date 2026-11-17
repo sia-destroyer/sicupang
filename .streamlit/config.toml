@@ -1,63 +1,69 @@
 # =====================================================================
-#  .streamlit/config.toml  -  Tema "Cupang" untuk SiCupang
-#  Simpan file ini di:  <folder project>/.streamlit/config.toml
-#  (sejajar dengan secrets.toml), lalu jalankan ulang: streamlit run main.py
+#  .streamlit/config.toml  -  Tema "Cupang Terang" untuk SiCupang
+#  Simpan di:  <folder project>/.streamlit/config.toml
+#  Lalu jalankan ulang: streamlit run main.py
 #
-#  Konsep warna:
-#    - Latar biru laut gelap  = suasana air akuarium malam hari
-#    - Aksen merah-magenta    = sirip ekor cupang (tombol, progress, pilihan aktif)
-#    - Aksen teal             = kilau sisik biru cupang (link, sidebar)
+#  Konsep warna (versi terang & elegan):
+#    - Latar putih kebiruan lembut  = air akuarium pagi hari
+#    - Aksen coral-magenta          = sirip ekor cupang (tombol, progress)
+#    - Aksen teal                   = kilau sisik biru (link, sidebar)
+#    - Sidebar biru es              = beda tipis dari halaman, tidak kaku
 # =====================================================================
 
 [theme]
-base = "dark"
+base = "light"
 
-# Warna utama: merah-magenta sirip cupang (tombol "primary", progress bar, tab aktif)
-primaryColor = "#FF3D6E"
+# Warna utama: coral-magenta lembut (tombol primary, progress bar, tab aktif)
+primaryColor = "#E8456F"
 
-# Latar halaman: biru laut dalam
-backgroundColor = "#0A1A2F"
+# Latar halaman: putih kebiruan, tidak silau seperti putih polos
+backgroundColor = "#F5FAFD"
 
-# Latar kartu, input, tabel, container border: biru akuarium
-secondaryBackgroundColor = "#12294A"
+# Latar input, tabel, expander: biru es pucat (kontras halus dengan halaman)
+secondaryBackgroundColor = "#E8F2F9"
 
-# Teks: putih kebiruan (lembut di mata)
-textColor = "#E6F1FA"
+# Teks: biru malam, lebih hangat & elegan dibanding hitam pekat
+textColor = "#12304D"
 
-# Warna link
-linkColor = "#2DD4BF"
+# Warna link: teal
+linkColor = "#0F9D8F"
 
-# Garis tepi kartu / input / tabel
-borderColor = "#1F4570"
+# Garis tepi halus
+borderColor = "#CFE1EE"
 showWidgetBorder = true
+showSidebarBorder = false
 
-# Sudut membulat seperti sirip
-baseRadius = "large"
+# Sudut membulat penuh, seperti sirip
+baseRadius = "full"
 
 # Font
 font = "sans serif"
 
-# Latar blok kode (jarang dipakai di aplikasi ini)
-codeBackgroundColor = "#0D2240"
+# Latar blok kode
+codeBackgroundColor = "#EAF3FA"
 
-# Warna grafik bawaan (kalau suatu saat tidak diatur manual di kode):
-# merah sirip, teal sisik, biru, kuning emas, ungu, oranye
-chartCategoricalColors = ["#FF3D6E", "#2DD4BF", "#3B82F6", "#FBBF24", "#A78BFA", "#FB923C"]
+# Warna grafik bawaan: coral, teal, biru, emas, lavender, oranye
+chartCategoricalColors = ["#E8456F", "#0F9D8F", "#3B82F6", "#F5A524", "#8B7CF6", "#F97316"]
+
+# Warna sekuensial (heatmap dll): biru es -> biru laut
+chartSequentialColors = ["#EAF4FB", "#C5E0F2", "#9CCBE8", "#6FB1DB", "#4796CA", "#2C79B0", "#1E5E92", "#144672", "#0C3152", "#071F37"]
 
 # ---------------------------------------------------------------------
-# Sidebar: sedikit lebih gelap supaya terasa seperti "dasar akuarium"
+# Sidebar: biru es lembut, teal sebagai penanda menu aktif
 # ---------------------------------------------------------------------
 [theme.sidebar]
-backgroundColor = "#07131F"
-secondaryBackgroundColor = "#0F2540"
-borderColor = "#1B3B60"
-primaryColor = "#2DD4BF"
+backgroundColor = "#E9F4FA"
+secondaryBackgroundColor = "#FFFFFF"
+borderColor = "#CBE0EE"
+textColor = "#12304D"
+primaryColor = "#0F9D8F"
+linkColor = "#0F9D8F"
 
 # ---------------------------------------------------------------------
 # Pengaturan lain
 # ---------------------------------------------------------------------
 [client]
-toolbarMode = "minimal"      # sembunyikan menu developer, tampilan lebih bersih
+toolbarMode = "minimal"
 
 [browser]
 gatherUsageStats = false
