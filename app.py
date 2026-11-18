@@ -75,7 +75,6 @@ def main():
     if "sa_selesai" not in st.session_state:
         st.session_state.sa_selesai = saldo_awal_selesai()
     if not st.session_state.sa_selesai:
-        sidebar_akun()
         halaman_saldo_awal()
         return
 
