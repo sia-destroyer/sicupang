@@ -37,10 +37,6 @@ def halaman_login():
                 tampilkan_logo(110)
             c_teks.header("SiCupang")
             # Keterangan dibuat rata tengah supaya seimbang dengan logo + nama di atasnya
-            st.markdown(
-                "<div style='text-align:center; color:#64748b; font-size:14px; "
-                "margin-bottom:12px;'>Aplikasi akuntansi sederhana (cash basis)</div>",
-                unsafe_allow_html=True)
             with st.form("form_masuk"):                   # form = kirim sekali saat tombol ditekan
                 username = st.text_input("Username", placeholder="Masukkan username")
                 password = st.text_input("Password", type="password", placeholder="Masukkan password")
